@@ -12,7 +12,6 @@ import vertexShaderSolid from '../../../assets/shaders/vertex-shader-solid.glsl'
   styleUrls: ['./sphere.component.scss']
 })
 export class SphereComponent implements OnInit {
-
   camera;
   scene;
   renderer;
