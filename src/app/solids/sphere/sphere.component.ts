@@ -27,6 +27,7 @@ export class SphereComponent implements OnInit {
   title: any;
   imageStore: any;
 
+  tourus;
   texture = new THREE.TextureLoader().load('../assets/images/flower01.jpg');
 
   @ViewChild('dom', { static: true }) dom: ElementRef;
@@ -103,8 +104,8 @@ export class SphereComponent implements OnInit {
   }
 
   addSecondObject() {
-    this.geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-    this.material = new THREE.MeshNormalMaterial();
+    this.tourus = new THREE.TorusGeometry(10, 3, 16, 100);
+    this.material = new THREE.MeshStandardMaterial();
 
     this.material = new THREE.ShaderMaterial({
       uniforms: {
@@ -116,7 +117,8 @@ export class SphereComponent implements OnInit {
       wireframe: true,
     })
 
-    this.mesh = new THREE.Mesh(this.geometry, this.material);
+    this.mesh = new THREE.Mesh(this.tourus, this.material);
+    this.scene.add(this.mesh);
   }
 
   render() {
